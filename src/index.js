@@ -3,15 +3,23 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './components/App';
-import reportWebVitals from './reportWebVitals';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
+  // <React.StrictMode>
+    <BrowserRouter basename='/react-mesto-auth'>
       <App />
     </BrowserRouter>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
-reportWebVitals();
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <BrowserRouter basename='/react-mesto-auth'>
+//       <App />
+//     </BrowserRouter>
+//   </React.StrictMode>,
+//   document.querySelector('.root')
+// );
+

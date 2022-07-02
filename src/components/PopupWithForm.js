@@ -29,7 +29,6 @@ function PopupWithForm({ isOpen, name, title, children, submitText, onClose, onS
             <button
               className="popup__submit-button"
               type="submit"
-              // disabled
             >
               {submitText}
             </button>

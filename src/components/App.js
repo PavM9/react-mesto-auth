@@ -1,16 +1,21 @@
 import React from 'react';
-import {  Route,  Switch,  Redirect,  useHistory,} from "react-router-dom";
+import {  Route,  Switch,  Redirect,  useHistory,} from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
-import api from "../utils/api";
-import CurrentUserContext from "../contexts/CurrentUserContext";
-import Header from './Header'
-import Main from './Main'
-import Footer from './Footer'
-import ImagePopup from "./ImagePopup"
+import api from '../utils/api';
+import CurrentUserContext from '../contexts/CurrentUserContext';
+import Header from './Header';
+import Main from './Main';
+import Register from './Register';
+import Login from './Login';
+import Footer from './Footer';
+import ImagePopup from './ImagePopup';
 import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import AddPlacePopup from './AddPlacePopup';
 import ConfirmDeletePopup from './ConfirmDeletePopup';
+import InfoToolTip from './InfoToolTip';
+import success from '../images/success.svg';
+import fail from '../images/fail.svg';
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
@@ -21,6 +26,7 @@ function App() {
   const [selectedCard, setSelectedCard] = React.useState(null);
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([])
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
   React.useEffect(() => {
     api
@@ -171,9 +177,14 @@ function App() {
             <Register
             />
           </Route>
+
           <Route path="/sign-in">
             <Login
             />
+          </Route>
+
+          <Route>
+            <Redirect to={!isLoggedIn ? "/sign-in" : "/"} />
           </Route>
         </Switch>
 
@@ -208,6 +219,8 @@ function App() {
           onClose={closeAllPopups}
           onSubmit={handleCardDelete}
         />
+
+        <InfoToolTip/>
     </div>
   </CurrentUserContext.Provider>
   );
