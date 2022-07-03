@@ -34,6 +34,7 @@
 * React.js:
   - Create React App
   - JSX разметка
+  - Route
   - Хуки useEffect, useState, useHistory, UseLocation
   - Функциональные компоненты
 
