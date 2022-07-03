@@ -1,5 +1,5 @@
 function PopupWithForm({ isOpen, name, title, children, submitText, onClose, onSubmit }) {
-  function handleCloseClick(){
+  function handleCloseClick() {
     onClose()
   }
 
@@ -23,7 +23,6 @@ function PopupWithForm({ isOpen, name, title, children, submitText, onClose, onS
             }}
             className="popup__form-container"
             name={name}
-            noValidate
           >
             {children}
             <button

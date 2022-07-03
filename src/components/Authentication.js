@@ -1,12 +1,9 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
-function Authentication({ title, onSubmit, buttonSubmitText}) {
+function Authentication({ title, onSubmit, buttonSubmitText }) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const location = useLocation();
-  const isLocationSignUp = location.pathname === "/sign-up";
-
 
   function handleEmailInput(evt) {
     setEmail(evt.target.value);
@@ -29,32 +26,32 @@ function Authentication({ title, onSubmit, buttonSubmitText}) {
           className="auth__input"
           type="email"
           placeholder="Email"
-          autoComplete="off"
+          autoComplete="on"
           value={email}
           onChange={handleEmailInput}
           required
-          formNoValidate
         />
         <input
           className="auth__input"
           type="password"
           placeholder="Пароль"
           value={password}
-          autoComplete="new-password"
+          autoComplete="on"
           onChange={handlePasswordInput}
           required
-          formNoValidate
         />
         <button
           className="auth__submit-button"
           type="submit">{buttonSubmitText}</button>
       </form>
-      {isLocationSignUp && (
+      <Route path="/sign-up">
         <p className="auth__text">
           Уже зарегистрированы?&nbsp;
-          <Link to="/sign-in" className="auth__link">Войти</Link>
+          <Link to="/sign-in" className="auth__link">
+            Войти
+          </Link>
         </p>
-      )}
+      </Route>;
     </section>
   );
 }

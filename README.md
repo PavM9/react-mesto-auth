@@ -33,9 +33,9 @@
   - плагины HTMLWebPackPlugin, CssLoader, PostCSS, CssNano, AutoPrefixer
 * React.js:
   - Create React App
-  - JSX разметка
+  - JSX
   - Route
-  - Хуки useEffect, useState, useHistory, UseLocation
+  - Хуки useEffect, useState, useHistory
   - Функциональные компоненты
 
 ## Требования к проектной работе

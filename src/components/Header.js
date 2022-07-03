@@ -1,16 +1,10 @@
 import React from "react";
 import logo from '../images/mesto-logo.svg';
-import { NavLink, useLocation } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 
-function Header({isLoggedIn, userEmail, onSignOut }) {
-  const location = useLocation();
-  const isLocationSignIn = location.pathname === '/sign-in';
+function Header({ isLoggedIn, userEmail, onSignOut }) {
   function handleSignOut() {
     onSignOut();
-  }
-
-  function handleSignIn() {
-
   }
 
   return (
@@ -22,15 +16,28 @@ function Header({isLoggedIn, userEmail, onSignOut }) {
       />
       <nav className="header__nav-container">
         <p className="header__email">{isLoggedIn ? userEmail : ""}</p>
-        {!isLocationSignIn ?
-          <NavLink onClick={!isLoggedIn ? handleSignIn : handleSignOut} className="header__link" to={"/sign-in"}>
-            {!isLoggedIn ? "Войти" : "Выйти"}
+        <Route path="/sign-up">
+          <NavLink className="header__link" to={"/sign-in"}>
+            Войти
           </NavLink>
-          :
-          <NavLink className="header__link" to={"/sign-up"}>
-            {!isLoggedIn ? "Регистрация" : ""}
+        </Route>
+        <Route path="/sign-in">
+          <NavLink
+            className="header__link"
+            to={"/sign-up"}
+          >
+            Регистрация
           </NavLink>
-        }
+        </Route>
+        <Route exact path="/">
+          <NavLink
+            className="header__link"
+            to={"/sign-in"}
+            onClick={handleSignOut}
+          >
+            Выйти
+          </NavLink>
+        </Route>
       </nav>
     </header>
   );
