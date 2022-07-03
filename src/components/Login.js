@@ -1,14 +1,14 @@
 import React from "react";
 import Authentication from "./Authentication";
 
-function Login({ onLogin }) {
+function Login({ onSignIn }) {
 
 
   return (
     <Authentication
       title="Вход"
       buttonSubmitText="Войти"
-      // onSubmit={onLogin}
+      onSubmit={onSignIn}
     />
   );
 }

@@ -1,14 +1,14 @@
 import React from "react";
 import Authentication from "./Authentication";
 
-function Register({ onRegister }) {
+function Register({ onSignUp }) {
 
 
   return (
     <Authentication
       title="Регистрация"
       buttonSubmitText="Зарегистрироваться"
-      // onSubmit={onRegister}
+      onSubmit={onSignUp}
     />
   );
 }

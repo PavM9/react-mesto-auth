@@ -6,7 +6,6 @@ function InfoToolTip({ isOpen, image, title, onClose}) {
   return (
     <section
       className={`popup ${isOpen && `popup_is-opened`}`}
-      // className="popup popup_is-opened"
       onClick={handleCloseClick}
     >
       <div
@@ -17,7 +16,7 @@ function InfoToolTip({ isOpen, image, title, onClose}) {
       >
         <div className="popup__content">
           <img className="popup__status-image" src={image} alt={title}/>
-          <h2 className="popup__message">Вы успешно зарегистрировались!{title}</h2>
+          <h2 className="popup__message">{title}</h2>
         </div>
         <button
           className="popup__close-button"

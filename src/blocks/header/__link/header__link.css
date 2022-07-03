@@ -6,8 +6,15 @@
   text-decoration: none;
   color: #fff;
   transition: opacity .3s;
+  transition: .3s;
 }
 
 .header__link:hover {
   opacity: 0.6;
+}
+
+@media screen and (max-width: 425px) {
+  .header__link {
+    font-size: 14px;
+  }
 }

@@ -1,11 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-function Authentication({ title, buttonSubmitText}) {
+function Authentication({ title, onSubmit, buttonSubmitText}) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const location = useLocation();
   const isLocationSignUp = location.pathname === "/sign-up";
+
 
   function handleEmailInput(evt) {
     setEmail(evt.target.value);
@@ -17,7 +18,7 @@ function Authentication({ title, buttonSubmitText}) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    // onRegister(email, password);
+    onSubmit(email, password);
   }
 
   return (
@@ -28,18 +29,21 @@ function Authentication({ title, buttonSubmitText}) {
           className="auth__input"
           type="email"
           placeholder="Email"
+          autoComplete="off"
           value={email}
-          // onChange={handleEmailInput}
+          onChange={handleEmailInput}
           required
+          formNoValidate
         />
         <input
           className="auth__input"
           type="password"
           placeholder="Пароль"
           value={password}
-          autoComplete="on"
-          // onChange={handlePasswordInput}
+          autoComplete="new-password"
+          onChange={handlePasswordInput}
           required
+          formNoValidate
         />
         <button
           className="auth__submit-button"
